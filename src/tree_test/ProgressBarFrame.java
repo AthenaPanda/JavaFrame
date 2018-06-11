@@ -7,6 +7,10 @@ import javax.swing.*;
 
 public class ProgressBarFrame extends JFrame 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -734101408661542919L;
 	private static final int DEFAULT_WIDTH = 400;
 	private static final int DEFAULT_HEIGHT = 600;
 	public static final int TEXT_ROWS = 10;

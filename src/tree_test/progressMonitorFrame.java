@@ -6,6 +6,10 @@ import javax.swing.*;
 
 public class progressMonitorFrame extends JFrame 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4925313390031476530L;
 	private static final int DEFAULT_WIDTH = 800;
 	private static final int DEFAULT_HEIGHT = 600;
 	public static final int TEXT_ROWS = 10;

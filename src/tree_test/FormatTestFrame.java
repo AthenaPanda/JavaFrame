@@ -12,6 +12,10 @@ import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public class FormatTestFrame extends JFrame
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5030042946948795203L;
 	private DocumentFilter filter = new IntFilter();
 	private JButton okButton;
 	private JPanel mainPanel;

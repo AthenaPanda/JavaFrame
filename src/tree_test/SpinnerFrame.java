@@ -7,6 +7,10 @@ import javax.swing.*;
 
 public class SpinnerFrame extends JFrame
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6105313316444418579L;
 	private JPanel mainPanel;
 	private JButton okButton;
 	

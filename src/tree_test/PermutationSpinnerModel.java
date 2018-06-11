@@ -4,6 +4,10 @@ import javax.swing.*;
 
 public class PermutationSpinnerModel extends AbstractSpinnerModel 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2872544532031847382L;
 	private String word;
 	public PermutationSpinnerModel(String w)
 	{

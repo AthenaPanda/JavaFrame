@@ -7,6 +7,10 @@ import javax.swing.tree.*;
 
 public class treeFranme extends JFrame
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1031855661010404659L;
 	private static final int DEFAULT_WIDTH = 300;
 	private static final int DEFAULT_HEIGHT = 300;
 	

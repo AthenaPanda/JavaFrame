@@ -9,6 +9,10 @@ import javax.swing.event.*;
 
 public class editorPane extends JFrame 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6422358001795787400L;
 	private static final int DEFAULT_WIDTH = 600;
 	private static final int DEFAULT_HEIGHT = 400;
 	
