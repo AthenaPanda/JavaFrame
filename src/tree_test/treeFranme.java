@@ -14,6 +14,12 @@ public class treeFranme extends JFrame
 	private static final int DEFAULT_WIDTH = 300;
 	private static final int DEFAULT_HEIGHT = 300;
 	
+	private Action saveAction;
+	private Action saveAsAction;
+	private JCheckBoxMenuItem readonlyItem;
+	private JPopupMenu popup;
+	
+	
 	private DefaultTreeModel model;
 	private JTree tree;
 	
@@ -100,5 +106,23 @@ public class treeFranme extends JFrame
 			}); 
 		panel.add(deleteButton);
 		add(panel, BorderLayout.SOUTH);
+	}
+	
+	/**
+	 * A sample action that prints the action name to System.out
+	 *@ClassName: TestAction 
+	 * Author:Athena
+	 */
+	class TestAction extends AbstractAction
+	{
+		public TestAction(String name) 
+		{
+			super(name);
+		}
+		
+		public void actionPerformed(ActionEvent event)
+		{
+			System.out.println(getValue(Action.NAME) + " selected");
+		}
 	}
 }
