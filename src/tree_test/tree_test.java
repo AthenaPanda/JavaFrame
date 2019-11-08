@@ -20,5 +20,9 @@ public class tree_test
 				frame.setVisible(true);
 			}
 		});
+		
+		DBSample ListCol = new DBSample();
 	}
+	
+	
 }
