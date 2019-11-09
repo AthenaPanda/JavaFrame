@@ -42,7 +42,71 @@ public class DBSample {
 		
 		list_pri.removeAll(list_sec);
 		System.out.println(list_pri);
-				
+		
+		SortedSet<Item> parts = new TreeSet<>();
+		parts.add(new Item("toa", 1234));
+		parts.add(new Item("mea", 2267));
+		parts.add(new Item("crc", 765));
+		System.out.println(parts);
+		
+		SortedSet<Item> sortByDescription = new TreeSet<>(new Comparator<Item>()
+				{
+					public int compare(Item a, Item b)
+					{
+						String desA = a.GetDescription();
+						String desB = b.GetDescription();
+						return desA.compareTo(desB);
+					}
+				});
+		
+		sortByDescription.addAll(parts);
+		System.out.println(sortByDescription);
 	}
 
+}
+
+class Item implements Comparable<Item> { 
+	private String description;
+	private int partNumber;
+	
+	public Item(String aDescription, int aPartNumber)
+	{
+		description = aDescription;
+		partNumber  = aPartNumber;
+	}
+	
+	public String GetDescription()
+	{
+		return description;
+	}
+	
+	public int GetPartNumber()
+	{
+		return partNumber;
+	}
+	
+	public String toString()
+	{
+		return "[description=" + description + ", partNumber=" + partNumber + "]";
+	}
+	
+	public boolean equals(Object otherObj)
+	{
+		if(this == otherObj) return true;
+		if(otherObj == null) return false;
+		if(getClass()!= otherObj.getClass()) return false;
+		Item other = (Item)otherObj;
+		return Objects.equals(description, other.description) && partNumber == other.partNumber ;
+	}
+	
+	public int hashCode()
+	{
+		return Objects.hash(description, partNumber);
+	}
+	
+	public int compareTo(Item other)
+	{
+		return Integer.compare(partNumber, other.partNumber);
+	}
+	
 }
