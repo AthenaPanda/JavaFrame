@@ -64,7 +64,25 @@ public class DBSample {
 				});
 		
 		sortByDescription.addAll(parts);
-		System.out.println(sortByDescription);		
+		System.out.println(sortByDescription);
+		
+		/*
+		 * PriorityQueue 
+		 * sort by default --YEAR
+		 */
+		PriorityQueue<GregorianCalendar> calQueue = new PriorityQueue<>();
+		calQueue.add(new GregorianCalendar(1908, Calendar.DECEMBER, 9));
+		calQueue.add(new GregorianCalendar(1836, Calendar.DECEMBER, 10));
+		calQueue.add(new GregorianCalendar(1901, Calendar.DECEMBER, 5));
+		calQueue.add(new GregorianCalendar(1918, Calendar.JULY, 22));
+		
+		System.out.println("Iterating every elements....");
+		for(GregorianCalendar date: calQueue)
+			System.out.println(date.get(Calendar.YEAR));
+		System.out.println("Removing Elements....");
+		while(!calQueue.isEmpty())
+			System.out.println(calQueue.remove().get(Calendar.YEAR));				
+		
 	}
 
 }
