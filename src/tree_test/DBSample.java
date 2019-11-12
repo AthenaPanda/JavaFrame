@@ -43,6 +43,10 @@ public class DBSample {
 		list_pri.removeAll(list_sec);
 		System.out.println(list_pri);
 		
+		/*
+		 * TreeSet with Comparator interface
+		 * sort by partNumber; sort by description
+		 */
 		SortedSet<Item> parts = new TreeSet<>();
 		parts.add(new Item("toa", 1234));
 		parts.add(new Item("mea", 2267));
@@ -60,7 +64,7 @@ public class DBSample {
 				});
 		
 		sortByDescription.addAll(parts);
-		System.out.println(sortByDescription);
+		System.out.println(sortByDescription);		
 	}
 
 }
