@@ -35,6 +35,7 @@ public class SpinnerFrame extends JFrame
 		JSpinner listSpinner = new JSpinner(new SpinnerListModel(fonts));
 		addRow("List", listSpinner);
 		
+		@SuppressWarnings("serial")
 		JSpinner reverseListSpinner  = new JSpinner(new SpinnerListModel(fonts)
 				{
 					public Object getNextValue(){return super.getPreviousValue();}
