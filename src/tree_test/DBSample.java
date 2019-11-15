@@ -1,6 +1,7 @@
 package tree_test;
 
 import java.util.*;
+import base_test.*;
 
 public class DBSample {
 	
@@ -83,6 +84,33 @@ public class DBSample {
 		while(!calQueue.isEmpty())
 			System.out.println(calQueue.remove().get(Calendar.YEAR));				
 		
+		/*
+		 * Map
+		 * method sample
+		 */
+		Map<String, Employee> staff = new HashMap<>();
+	    staff.put("144-25-5564", new Employee("Amy Lee", 1000, 1988, 9, 25));
+	    staff.put("567-24-2546", new Employee("Harry Hacker", 2000, 1979, 3, 13));
+	    staff.put("157-62-7935", new Employee("Gary Cooper", 1500, 1990, 12, 3));
+	    staff.put("456-62-5527", new Employee("Frank Cruz", 3000, 1969, 7, 10));
+	    
+	    System.out.println(staff);
+	    
+	    //remove an Entry
+	    staff.remove("567-24-2546");
+	    
+	    //replace an Entry
+	    staff.put("456-62-5527", new Employee("Cate Kacy", 2000, 1973, 6, 20));
+	    
+	    System.out.println(staff.get("157-62-7935"));
+	    
+	    for(Map.Entry<String, Employee> entry: staff.entrySet())
+	    {
+	    	String key = entry.getKey();
+	    	Employee value = entry.getValue();
+	    	System.out.println("Key=" + key +",Value=" + value.getName());
+	    }
+	    
 	}
 
 }
