@@ -45,6 +45,7 @@ public class TestAll {
 		threadA.start();
 		threadB.start();
 		threadC.start();
+		System.out.println("current status is " + threadA.isAlive() + ". Id is " + threadA.getId());
 	}
 
 }

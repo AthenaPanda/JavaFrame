@@ -11,7 +11,7 @@ public class MyThread extends Thread {
 		this.setName(name);
 	}*/
 	@Override
-	public void run() {
+	 synchronized public void run() {
 		/*
 		 * b. Test thread unshare var  
 		 *
