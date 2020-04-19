@@ -1,12 +1,11 @@
 package thread_trunk;
 
-import trunk.MyRunnable;
-import trunk.MyThread;
-
 public class TestAll {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		/* a. Test thread execution sequence 
+		 * 
 		try {
 			MyThread myThread = new MyThread();
 			myThread.setName("myThread");
@@ -24,10 +23,17 @@ public class TestAll {
 		} catch (InterruptedException e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
+		}*/
 		
-	}
-
+		/*
+		 * b. Test thread  unshare var
+		 */
+		MyThread threadA = new MyThread("A");
+		MyThread threadB = new MyThread("B");
+		MyThread threadC = new MyThread("C");
+		threadA.start();
+		threadB.start();
+		threadC.start();
 	}
 
 }
