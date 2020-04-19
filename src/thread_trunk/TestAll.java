@@ -26,11 +26,22 @@ public class TestAll {
 		}*/
 		
 		/*
-		 * b. Test thread  unshare var
-		 */
+		 * b. Test thread  Unshare var
+		 *
 		MyThread threadA = new MyThread("A");
 		MyThread threadB = new MyThread("B");
 		MyThread threadC = new MyThread("C");
+		threadA.start();
+		threadB.start();
+		threadC.start();
+		*/
+		/*
+		 * c. Test thread share var 
+		 */
+		MyThread  threadShare = new MyThread();
+		Thread threadA = new Thread(threadShare, "A");
+		Thread threadB = new Thread(threadShare, "B");
+		Thread threadC = new Thread(threadShare, "C");
 		threadA.start();
 		threadB.start();
 		threadC.start();

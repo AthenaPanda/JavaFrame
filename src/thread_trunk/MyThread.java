@@ -3,21 +3,24 @@ package thread_trunk;
 public class MyThread extends Thread {
 	private int count = 5;
 	
+	/*
+	 * c. Test thread share var 
 	public MyThread(String name) {
 		// TODO Auto-generated constructor stub
 		super();
 		this.setName(name);
-	}
+	}*/
 	@Override
 	public void run() {
 		/*
 		 * b. Test thread unshare var  
-		 */
+		 *
 		super.run();
 		while(count > 0) {
 			count--;
 			System.out.println("get " + this.currentThread().getName() +" count is " + count);
 		}
+		*/
 		/*  a. Test thread execution sequence 
 		 * try {
 			for (int i = 0; i < 10; i++) {
@@ -29,7 +32,13 @@ public class MyThread extends Thread {
 			// TODO: handle exception
 			e.printStackTrace();
 		}*/
-		System.out.println("MyThread");
+		/*
+		 * c. Test thread share var 
+		 */
+		super.run();
+		count--;
+		System.out.println("get " + this.currentThread().getName() +" count is " + count);
+		
 	}
 
 }
