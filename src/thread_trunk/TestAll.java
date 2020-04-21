@@ -50,10 +50,19 @@ public class TestAll {
 		
 		/*
 		 * Test yield method
-		 */
+		 *
 		MyThread threadY = new MyThread();
 		threadY.start();
-		
+		*/
+		for(int i = 0; i<5; i++) {
+			MyThread threadFirst = new MyThread();
+			threadFirst.setPriority(10);
+			threadFirst.start();
+			
+			SecondThread threadSecond= new SecondThread();
+			threadSecond.setPriority(1);
+			threadSecond.start();
+		}
 	}
 
 }

@@ -1,4 +1,5 @@
 package thread_trunk;
+import java.util.Random;
 
 public class MyThread extends Thread {
 	//private int count = 5;
@@ -40,13 +41,19 @@ public class MyThread extends Thread {
 		System.out.println("get " + this.currentThread().getName() +" count is " + count);
 		*/
 		long begintime = System.currentTimeMillis();
-		int count = 0;
-		for(int i = 0; i < 500000; i++) {
-			Thread.yield();
-			count = count + (i + 1);
+		//int count = 0;
+		long addResult = 0;
+		for(int j=0; j < 10; j++) {
+			for(int i = 0; i < 50000; i++) {
+			//Thread.yield();
+				Random random = new Random();
+				random.nextInt();
+				addResult =  addResult + i;
+				//count = count + (i + 1);
+			}
 		}
 		long endtime = System.currentTimeMillis();
-		System.out.println("time is " + (endtime - begintime) +" ms.");
+		System.out.println("MyThread time is " + (endtime - begintime) +" ms.");
 	}
 
 }
