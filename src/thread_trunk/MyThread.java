@@ -1,7 +1,7 @@
 package thread_trunk;
 
 public class MyThread extends Thread {
-	private int count = 5;
+	//private int count = 5;
 	
 	/*
 	 * c. Test thread share var 
@@ -34,11 +34,19 @@ public class MyThread extends Thread {
 		}*/
 		/*
 		 * c. Test thread share var 
-		 */
+		 *
 		super.run();
 		count--;
 		System.out.println("get " + this.currentThread().getName() +" count is " + count);
-		
+		*/
+		long begintime = System.currentTimeMillis();
+		int count = 0;
+		for(int i = 0; i < 500000; i++) {
+			Thread.yield();
+			count = count + (i + 1);
+		}
+		long endtime = System.currentTimeMillis();
+		System.out.println("time is " + (endtime - begintime) +" ms.");
 	}
 
 }

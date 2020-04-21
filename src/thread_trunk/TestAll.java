@@ -37,7 +37,7 @@ public class TestAll {
 		*/
 		/*
 		 * c. Test thread share var 
-		 */
+		 *
 		MyThread  threadShare = new MyThread();
 		Thread threadA = new Thread(threadShare, "A");
 		Thread threadB = new Thread(threadShare, "B");
@@ -46,6 +46,14 @@ public class TestAll {
 		threadB.start();
 		threadC.start();
 		System.out.println("current status is " + threadA.isAlive() + ". Id is " + threadA.getId());
+		*/
+		
+		/*
+		 * Test yield method
+		 */
+		MyThread threadY = new MyThread();
+		threadY.start();
+		
 	}
 
 }
