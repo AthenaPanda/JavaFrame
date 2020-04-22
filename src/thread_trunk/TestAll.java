@@ -56,11 +56,11 @@ public class TestAll {
 		*/
 		for(int i = 0; i<5; i++) {
 			MyThread threadFirst = new MyThread();
-			threadFirst.setPriority(10);
+			threadFirst.setPriority(5);
 			threadFirst.start();
 			
 			SecondThread threadSecond= new SecondThread();
-			threadSecond.setPriority(1);
+			threadSecond.setPriority(6);
 			threadSecond.start();
 		}
 	}
