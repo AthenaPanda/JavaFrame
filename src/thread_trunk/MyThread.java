@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class MyThread extends Thread {
 	//private int count = 5;
-	
+	private SampleObject myObj;
 	/*
 	 * c. Test thread share var 
 	public MyThread(String name) {
@@ -11,6 +11,15 @@ public class MyThread extends Thread {
 		super();
 		this.setName(name);
 	}*/
+	/*
+	 * e. test synchornized 
+	 * the lock is for object not method or code
+	 */
+	public MyThread(SampleObject object) {
+
+		super();// TODO Auto-generated constructor stub
+		this.myObj = object;
+	}
 	@Override
 	 synchronized public void run() {
 		/*
@@ -40,6 +49,10 @@ public class MyThread extends Thread {
 		count--;
 		System.out.println("get " + this.currentThread().getName() +" count is " + count);
 		*/
+		
+		/* 
+		 * d .test Thread priority
+		 *
 		long begintime = System.currentTimeMillis();
 		//int count = 0;
 		long addResult = 0;
@@ -54,6 +67,14 @@ public class MyThread extends Thread {
 		}
 		long endtime = System.currentTimeMillis();
 		System.out.println("MyThread time is " + (endtime - begintime) +" ms.");
+		*/
+		
+		/*  
+		 * e. test synchornized 
+		 * the lock is for object not method or code
+		 */
+		super.run();
+		myObj.methodA();
 	}
 
 }

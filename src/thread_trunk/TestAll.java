@@ -54,6 +54,9 @@ public class TestAll {
 		MyThread threadY = new MyThread();
 		threadY.start();
 		*/
+		/*
+		 * test thread priority
+		 *
 		for(int i = 0; i<5; i++) {
 			MyThread threadFirst = new MyThread();
 			threadFirst.setPriority(5);
@@ -63,6 +66,18 @@ public class TestAll {
 			threadSecond.setPriority(6);
 			threadSecond.start();
 		}
+		*/
+		/*  
+		 * e. test synchornized 
+		 * the lock is for object not method or code
+		 */
+		SampleObject mainObject = new SampleObject();
+		MyThread threadA = new MyThread(mainObject);
+		threadA.setName("A");
+		SecondThread threadB = new SecondThread(mainObject);
+		threadB.setName("B");
+		threadA.start();
+		threadB.start();
 	}
 
 }
