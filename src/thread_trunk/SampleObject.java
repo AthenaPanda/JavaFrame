@@ -1,7 +1,5 @@
 package thread_trunk;
 
-import com.sun.swing.internal.plaf.synth.resources.synth;
-
 public class SampleObject {
 	synchronized public void methodA() {
 		try {
