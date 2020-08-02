@@ -78,6 +78,18 @@ public class TestAll {
 		threadB.setName("B");
 		threadA.start();
 		threadB.start();
+		
+		try {
+			Object lock= new Object();
+			ThirdThread threaC = new ThirdThread(lock);
+			threaC.start();
+			Thread.sleep(3000);
+			FourthThread threadD = new FourthThread(lock);
+			threadD.start();
+		} catch (InterruptedException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 
 }
