@@ -90,6 +90,15 @@ public class TestAll {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+		
+		//product and consumer
+		String lockPro = new String("");
+		Product product = new Product(lockPro);
+		Consumer consumer = new Consumer(lockPro);
+		ThreadP threadP = new ThreadP(product);
+		ThreadCon con = new ThreadCon(consumer);
+		threadP.start();
+		con.start();
 	}
 
 }

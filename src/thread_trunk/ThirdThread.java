@@ -12,7 +12,7 @@ public class ThirdThread extends Thread{
 		try {
 				synchronized (lock) {
 					System.out.println("start wait time = " + System.currentTimeMillis());
-					lock.wait();
+					lock.wait(2000);
 					System.out.println("end wait time = " + System.currentTimeMillis());
 				}
 		} catch (InterruptedException e) {
