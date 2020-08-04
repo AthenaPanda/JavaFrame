@@ -1,5 +1,9 @@
 package thread_trunk;
 
+import java.io.IOException;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
+
 public class TestAll {
 
 	public static void main(String[] args) {
@@ -92,13 +96,36 @@ public class TestAll {
 		}
 		
 		//product and consumer
-		String lockPro = new String("");
+		/*String lockPro = new String("");
 		Product product = new Product(lockPro);
 		Consumer consumer = new Consumer(lockPro);
 		ThreadP threadP = new ThreadP(product);
 		ThreadCon con = new ThreadCon(consumer);
 		threadP.start();
-		con.start();
+		con.start();*/
+		
+		//add  byte stream for thread pipe
+		try {
+			WriteData dataOut = new WriteData();
+			ReadData datainData = new ReadData();
+			PipedInputStream input = new PipedInputStream();
+			PipedOutputStream out = new PipedOutputStream();
+			out.connect(input);
+			
+			ThreadRead threadRead = new ThreadRead(datainData, input);
+			threadRead.start();
+			Thread.sleep(2000);
+			ThreadWrite threadWrite = new ThreadWrite(dataOut, out);
+			threadWrite.start();			
+			
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		catch (InterruptedException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 
 }
