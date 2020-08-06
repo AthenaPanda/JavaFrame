@@ -126,6 +126,16 @@ public class TestAll {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+		try {
+			JoinThread threadJ = new JoinThread();
+			threadJ.start();
+			threadJ.join();
+			System.out.println("current time");
+		} catch (InterruptedException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}		
+		
 	}
 
 }
