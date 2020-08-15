@@ -75,7 +75,7 @@ public class TestAll {
 		 * e. test synchornized 
 		 * the lock is for object not method or code
 		 */
-		SampleObject mainObject = new SampleObject();
+		/*SampleObject mainObject = new SampleObject();
 		MyThread threadA = new MyThread(mainObject);
 		threadA.setName("A");
 		SecondThread threadB = new SecondThread(mainObject);
@@ -93,7 +93,7 @@ public class TestAll {
 		} catch (InterruptedException e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
+		}*/
 		
 		//product and consumer
 		/*String lockPro = new String("");
@@ -134,7 +134,41 @@ public class TestAll {
 		} catch (InterruptedException e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}		
+		}
+		
+		//lock test
+		/*LockService service = new LockService();
+		testLock a1 = new testLock(service);
+		testLock a2 = new testLock(service);
+		testLock a3 = new testLock(service);
+		a1.start();
+		a2.start();
+		a3.start();*/
+		
+		try {
+			LockService service = new LockService();
+			SecondThread threadA1 = new SecondThread(service);
+			threadA1.setName("A1");
+			threadA1.start();
+			
+			ThirdThread threadA2 = new ThirdThread(service);
+			threadA2.setName("A2");
+			threadA2.start();
+			ThreadRead.sleep(100);
+			
+			FourthThread threadB1 = new FourthThread(service);
+			threadB1.setName("B1");
+			threadB1.start();
+			
+			testLock threadB2 = new testLock(service);
+			threadB2.setName("B2");
+			threadB2.start();
+			
+			
+		} catch (InterruptedException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		
 	}
 

@@ -4,15 +4,18 @@ import java.util.Random;
 
 public class SecondThread extends Thread {
 	
-	private SampleObject secObj;
+	//private SampleObject secObj;
+	private LockService service;
 	/*
 	 * e. test synchornized 
 	 * the lock is for object not method or code
 	 */
-	public SecondThread(SampleObject object) {
+	//public SecondThread(SampleObject object) {
+	public SecondThread(LockService service) {
 
 		super();// TODO Auto-generated constructor stub
-		this.secObj = object;
+		//this.secObj = object;
+	    this.service =  service;
 	}
 	@Override
 	public void run() {
@@ -38,7 +41,10 @@ public class SecondThread extends Thread {
 		 * e. test synchornized 
 		 * the lock is for object not method or code
 		 */
-		super.run();
-		secObj.methodA();
+		//super.run();
+		//secObj.methodA();
+		
+		// test lock 
+		service.testMethodA();
 	}
 }
