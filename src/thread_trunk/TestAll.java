@@ -145,7 +145,8 @@ public class TestAll {
 		a2.start();
 		a3.start();*/
 		
-		try {
+		//loct object test
+		/*try {
 			LockService service = new LockService();
 			SecondThread threadA1 = new SecondThread(service);
 			threadA1.setName("A1");
@@ -168,8 +169,18 @@ public class TestAll {
 		} catch (InterruptedException e) {
 			// TODO: handle exception
 			e.printStackTrace();
+		}*/
+		try {
+			LockService service = new LockService();
+			testLock threadLock = new testLock(service);
+			threadLock.start();
+			Thread.sleep(3000);
+			service.signal();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
 		}
-		
+
 	}
 
 }

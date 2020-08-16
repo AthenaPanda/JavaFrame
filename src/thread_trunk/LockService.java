@@ -1,9 +1,11 @@
 package thread_trunk;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.*;
 
 public class LockService {
 	private Lock lock = new ReentrantLock();
-	
+	private Condition condition = lock.newCondition();
 	public void testMethod() {
 		lock.lock();
 		for (int i = 0; i < 5; i++) {
@@ -44,6 +46,30 @@ public class LockService {
 			e.printStackTrace();
 		}
 		finally {
+			lock.unlock();
+		}
+	}
+	
+	public void await() {
+		try {
+			lock.lock();
+			System.out.println("await time is " + System.currentTimeMillis());
+			condition.await();
+		} catch (InterruptedException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			lock.unlock();
+		}
+	}
+	
+	public void signal() {
+		try {
+			lock.lock();
+			System.out.println("sinal time is " + System.currentTimeMillis());
+			condition.signal();
+		} finally {
 			lock.unlock();
 		}
 	}
