@@ -19,7 +19,10 @@ public class FourthThread extends Thread {
 				lock.notify();
 				System.out.println("End notify time = " + System.currentTimeMillis());
 			}*/
-			service.testMethodB();
+			//service.testMethodB();
+		for(int i = 0; i < 10; i++) {
+			service.get();
+		}
 	}
 
 }

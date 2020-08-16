@@ -6,6 +6,7 @@ import java.util.concurrent.locks.*;
 public class LockService {
 	private Lock lock = new ReentrantLock();
 	private Condition condition = lock.newCondition();
+	private boolean hasValue = false;
 	public void testMethod() {
 		lock.lock();
 		for (int i = 0; i < 5; i++) {
@@ -73,4 +74,39 @@ public class LockService {
 			lock.unlock();
 		}
 	}
+	
+	public void set() {
+		try {
+			lock.lock();
+			while(hasValue == true) {
+				 condition.await();
+			}
+			System.out.println("****");
+			hasValue = true;
+			condition.signal();			
+		} catch (InterruptedException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			lock.unlock();
+		}
+	}
+	
+	public void get() {
+		try {
+			lock.lock();
+			while(hasValue == false) {
+				 condition.await();
+			}
+			System.out.println("**");
+			hasValue = false;
+			condition.signal();			
+		} catch (InterruptedException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			lock.unlock();
+		}
+	}
+	
 }

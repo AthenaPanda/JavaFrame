@@ -174,8 +174,10 @@ public class TestAll {
 			LockService service = new LockService();
 			testLock threadLock = new testLock(service);
 			threadLock.start();
-			Thread.sleep(3000);
-			service.signal();
+			//Thread.sleep(3000);
+			//service.signal();
+			FourthThread threadConFourthThread = new FourthThread(service);
+			threadConFourthThread.start();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
