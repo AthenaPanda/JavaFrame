@@ -45,6 +45,7 @@ public class SecondThread extends Thread {
 		//secObj.methodA();
 		
 		// test lock 
-		service.testMethodA();
+		//service.testMethodA();
+		service.write();
 	}
 }

@@ -1,6 +1,5 @@
 package thread_trunk;
 
-import sun.print.resources.serviceui;
 
 public class ThirdThread extends Thread{
 	//private Object lock;
@@ -24,6 +23,6 @@ public class ThirdThread extends Thread{
 			// TODO: handle exception
 			e.printStackTrace();
 		}*/
-		service.testMethodA();
+		//service.testMethodA();
 	}
 }

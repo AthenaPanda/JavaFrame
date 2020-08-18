@@ -13,8 +13,9 @@ public class testLock extends Thread{
 		//service.testMethod();
 		//service.testMethodB();
 		//service.await();
-		for(int i = 0; i < 10; i++) {
+		/*for(int i = 0; i < 10; i++) {
 			service.set();
-		}
+		}*/
+		service.read();
 	}
 }

@@ -20,9 +20,10 @@ public class FourthThread extends Thread {
 				System.out.println("End notify time = " + System.currentTimeMillis());
 			}*/
 			//service.testMethodB();
-		for(int i = 0; i < 10; i++) {
+		/*for(int i = 0; i < 10; i++) {
 			service.get();
-		}
+		}*/
+		service.read();
 	}
 
 }

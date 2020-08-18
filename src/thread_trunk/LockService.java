@@ -1,10 +1,10 @@
 package thread_trunk;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
+import java.util.*;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.*;
 
 public class LockService {
-	private Lock lock = new ReentrantLock();
+	/*private Lock lock = new ReentrantLock();
 	private Condition condition = lock.newCondition();
 	private boolean hasValue = false;
 	public void testMethod() {
@@ -106,6 +106,42 @@ public class LockService {
 			e.printStackTrace();
 		}finally {
 			lock.unlock();
+		}
+	}
+	*/
+	private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+	
+	public void read() {
+		try {
+			try {
+				lock.readLock().lock();
+				System.out.println("get read lock " + Thread.currentThread().getName() + " " + System.currentTimeMillis());
+				Thread.sleep(10000);
+			} finally {
+				// TODO: handle finally clause
+				lock.readLock().unlock();
+			}
+			
+		} catch (InterruptedException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void write() {
+		try {
+			try {
+				lock.writeLock().lock();
+				System.out.println("get write lock " + Thread.currentThread().getName() + " " + System.currentTimeMillis());
+				Thread.sleep(10000);
+			} finally {
+				// TODO: handle finally clause
+				lock.writeLock().unlock();
+			}
+			
+		} catch (InterruptedException e) {
+			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 	

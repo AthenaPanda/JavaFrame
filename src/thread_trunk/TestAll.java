@@ -170,7 +170,8 @@ public class TestAll {
 			// TODO: handle exception
 			e.printStackTrace();
 		}*/
-		try {
+		
+		/*try {
 			LockService service = new LockService();
 			testLock threadLock = new testLock(service);
 			threadLock.start();
@@ -181,8 +182,17 @@ public class TestAll {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-		}
-
+		}*/
+		LockService service_rw = new LockService();
+		testLock thread_rr = new testLock(service_rw);
+		thread_rr.setName("RLock1");
+		FourthThread thread_rr1 = new FourthThread(service_rw);
+		thread_rr1.setName("Rlock2");
+		SecondThread thread_rw = new SecondThread(service_rw);
+		thread_rw.setName("WLock1");
+		thread_rr.start();
+		thread_rr1.start();
+		thread_rw.start();
 	}
 
 }
