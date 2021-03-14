@@ -1,7 +1,9 @@
 package base_test;
+import java.lang.annotation.*;
+import java.lang.reflect.*;
 
 public class test_proxy {
-	public static void main(String[] args) {
+	public static void main (String[] args) throws ClassNotFoundException {
 		/*
 		 * static proxy 
 		 * 
@@ -23,6 +25,26 @@ public class test_proxy {
 		
 		proxy.find();
 		proxy.update();
+		
+		Employee stuffEmployee = new Employee("John", 1000, 2011, 3, 20);
+		stuffEmployee.raiseSalary(0.2);
+		
+		readAnnotation();
+		
+	}
+	
+	public static void readAnnotation() throws ClassNotFoundException {
+		Field[] fileds = Class.forName("base_test.Employee").getDeclaredFields();
+		
+	
+		for(Field field: fileds)
+		{
+			boolean hasAnnotation = field.isAnnotationPresent(DemoAnnotation.class);
+			if(hasAnnotation) {
+			DemoAnnotation demoAnnotation =(DemoAnnotation)field.getAnnotation(DemoAnnotation.class);
+			System.out.println("name ="+ demoAnnotation.name());
+			}
+		}
 		
 	}
 }

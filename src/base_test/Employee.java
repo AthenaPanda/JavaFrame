@@ -2,6 +2,7 @@ package base_test;
 
 import java.util.*;
 
+@DemoAnnotation(name="type")
 public class Employee {
 	
 	private static int nextId ;
@@ -9,6 +10,7 @@ public class Employee {
 	private String name ="";
 	private double salary;
 	private Date hireDay;
+@DemoAnnotation(name="param")
 	private int id;
 
 	static 
