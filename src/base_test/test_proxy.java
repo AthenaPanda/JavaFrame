@@ -19,7 +19,7 @@ public class test_proxy {
 		/*
 		 * Dynamic Proxy
 		 */
-		AdminService adminService = new AdminServiceImpl();
+		AdminService adminService = new AdminServiceImpl(); //real service provider
 		AdminServiceInvoketion invoketion = new AdminServiceInvoketion(adminService);
 		AdminService proxy = (AdminService)new AdminServiceDynamicProxy(adminService, invoketion).getPersonProxy();
 		
